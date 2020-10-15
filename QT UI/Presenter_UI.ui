@@ -142,15 +142,18 @@
       <height>1</height>
      </size>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">button-&gt;setStyleSheet(&quot;border-image:url(:/Images/&quot;Toolbox Logo.jpg&quot;);&quot;);</string>
+     <string notr="true">background-color: transparent;</string>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
-     <iconset theme="Images">
-      <normaloff>Images/Toolbox Logo.jpg</normaloff>Images/Toolbox Logo.jpg</iconset>
+     <iconset>
+      <normaloff>Images/Toolbox Logo.png</normaloff>Images/Toolbox Logo.png</iconset>
     </property>
     <property name="iconSize">
      <size>
