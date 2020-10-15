@@ -9,11 +9,11 @@ from fer import FER
 class VideoThread(QThread):
     new_frame_signal = pyqtSignal(numpy.ndarray)
 
-    def __init__(self, videoLabel, emotionText):
+    def __init__(self, videoFeed, emotionFeedback):
         super().__init__()
         self.video_capture_device = cv2.VideoCapture(0)
-        self.videoLabel = videoLabel
-        self.emotionText = emotionText
+        self.videoFeed = videoFeed
+        self.emotionFeedback = emotionFeedback
         self.detector = FER()
 
     def run(self):
@@ -40,7 +40,7 @@ class VideoThread(QThread):
         bytesPerLine = 3 * width
         qImg = QtGui.QImage(frame.data, width, height, bytesPerLine, QtGui.QImage.Format_RGB888)
         qImg = qImg.rgbSwapped()
-        self.videoLabel.setPixmap(QtGui.QPixmap(qImg).scaled(self.videoLabel.width(),self.videoLabel.height(),Qt.KeepAspectRatio))
+        self.videoFeed.setPixmap(QtGui.QPixmap(qImg).scaled(self.videoFeed.width(),self.videoFeed.height(),Qt.KeepAspectRatio))
         emotion, score = self.detector.top_emotion(frame)
-        self.emotionText.setText(emotion)
+        self.emotionFeedback.setText(emotion)
 
