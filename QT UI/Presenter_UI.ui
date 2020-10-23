@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>ToastmastersToolbox</class>
+ <widget class="QMainWindow" name="ToastmastersToolbox">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -51,11 +51,16 @@
       <height>1</height>
      </size>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>48</pointsize>
+     </font>
+    </property>
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
     <property name="text">
-     <string>Timer Duration</string>
+     <string>00:00:00</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -76,8 +81,13 @@
       <height>1</height>
      </size>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>48</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Expression Analyzer Feedback</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -100,28 +110,6 @@
     </property>
     <property name="text">
      <string>Ah-Indicator</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="speechStartStop">
-    <property name="geometry">
-     <rect>
-      <x>560</x>
-      <y>10</y>
-      <width>111</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>1</width>
-      <height>1</height>
-     </size>
-    </property>
-    <property name="text">
-     <string>Speech Start/Stop</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -162,6 +150,19 @@
      </size>
     </property>
    </widget>
+   <widget class="QPushButton" name="speechStartStop">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>10</y>
+      <width>111</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Speech Start/Stop</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -169,21 +170,27 @@
      <x>0</x>
      <y>0</y>
      <width>808</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuQuit">
+   <widget class="QMenu" name="menuBar">
     <property name="title">
      <string>File</string>
     </property>
     <addaction name="actionQuit"/>
+    <addaction name="actionSettings"/>
    </widget>
-   <addaction name="menuQuit"/>
+   <addaction name="menuBar"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionQuit">
    <property name="text">
     <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
    </property>
   </action>
  </widget>
