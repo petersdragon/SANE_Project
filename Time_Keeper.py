@@ -1,21 +1,34 @@
 import time
+from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
+from datetime import datetime, timedelta
+from stopwatch import Stopwatch
 
-class Time_Keeper():
-    def __init__(self):
-        self.start_time = None
-        self.speech_duration = None
+class Time_Keeper(QThread):
+    def __init__(self, elapsedTime):
+        super().__init__()
+        self.elapsedTime = elapsedTime
+        self.stopwatch = Stopwatch()
+
+    def run(self):
+        self.stopwatch.stop()
+        while True:
+            self.Update_Timer()
+            time.sleep(1)
 
     def Start_Timer(self):
         # begin presentation timer
-        self.start_time = time.time()
-
-    def End_Timer(self):
-        # get presentation duration
-        self.speech_duration = self.Elapsed_Time()
+        self.stopwatch.reset()
+        self.stopwatch.start()
 
     def Elapsed_Time(self):
-        current_time = time.time()
-        return current_time - self.start_time
+        return str(timedelta(seconds=self.stopwatch.duration)).split('.')[0]
 
+    def Update_Timer(self):
+        self.elapsedTime.setText(self.Elapsed_Time())
+
+    def Reset_Timer(self):
+        self.stopwatch.stop()
+        self.stopwatch.reset()
+        self.Update_Timer()
 
     

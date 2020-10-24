@@ -36,7 +36,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="timerDuration">
+   <widget class="QLabel" name="elapsedTime">
     <property name="geometry">
      <rect>
       <x>0</x>
