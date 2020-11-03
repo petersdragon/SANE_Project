@@ -44,9 +44,12 @@ class Webcam(QThread):
         if self.delay == -1:
             pass
         elif self.delay_FER_read == self.delay: # only perform facial recognition once every <delay> frames
-            emotion, score = self.detector.top_emotion(frame)
-            self.emotionFeedback.setText(emotion)
-            self.delay_FER_read = 0
+            try:
+                emotion, score = self.detector.top_emotion(frame)
+                self.emotionFeedback.setText(emotion)
+                self.delay_FER_read = 0
+            except:
+                self.emotionFeedback.setText("")
         else:
             self.delay_FER_read += 1
 
