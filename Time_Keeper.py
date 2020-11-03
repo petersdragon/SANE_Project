@@ -4,10 +4,12 @@ from datetime import datetime, timedelta
 from stopwatch import Stopwatch
 
 class Time_Keeper(QThread):
-    def __init__(self, elapsedTime):
+    def __init__(self, elapsedTime, timerIndicator, indicatorBoundaries):
         super().__init__()
         self.elapsedTime = elapsedTime
+        self.timerIndicator = timerIndicator
         self.stopwatch = Stopwatch()
+        self.indicatorBoundaries = indicatorBoundaries
 
     def run(self):
         self.stopwatch.stop()
@@ -25,6 +27,19 @@ class Time_Keeper(QThread):
 
     def Update_Timer(self):
         self.elapsedTime.setText(self.Elapsed_Time())
+        # For changing the color of the indicator
+        if (self.stopwatch.duration >= self.indicatorBoundaries["redIndicator"]):
+            FG_Color = "rgb(255,0,0);"
+        elif (self.stopwatch.duration >= self.indicatorBoundaries["yellowIndicator"]):
+            FG_Color = "rgb(255,255,0);"
+        elif (self.stopwatch.duration >= self.indicatorBoundaries["greenIndicator"]):
+            FG_Color = "rgb(0,255,0);"
+        else:
+            FG_Color = "rgb(0,0,0);"
+
+        self.timerIndicator.setStyleSheet("QLabel {color : " + FG_Color + "}")
+
+    
 
     def Reset_Timer(self):
         self.stopwatch.stop()
