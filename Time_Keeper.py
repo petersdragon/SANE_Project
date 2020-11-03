@@ -39,8 +39,6 @@ class Time_Keeper(QThread):
 
         self.timerIndicator.setStyleSheet("QLabel {color : " + FG_Color + "}")
 
-    
-
     def Reset_Timer(self):
         self.stopwatch.stop()
         self.stopwatch.reset()
