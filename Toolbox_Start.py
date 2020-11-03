@@ -7,7 +7,7 @@ from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread, QTime
 from fer import FER
 from Webcam import Webcam
 from Time_Keeper import Time_Keeper
-from Ah_Counter_Server import FlaskServer
+from Ah_Counter_Server import thread_Ah_Counter, Set_Ah_Indicator
 
 def ConvertTime(timeEdit):
     return timeEdit.hour()*3600 + timeEdit.minute()*60 + timeEdit.second()
@@ -67,7 +67,7 @@ is_presenting = False # Boolean to know if the timer needs to be going
 thread_presenting = Time_Keeper(UI.elapsedTime, UI.timerIndicator, timerBoundaries) # Define the thread that will time the presenter
 thread_presenting.start()
 
-thread_Ah_Counter = FlaskServer()
+Set_Ah_Indicator(UI.ahIndicator)
 thread_Ah_Counter.start()
 
 UI.actionQuit.triggered.connect(Quit)

@@ -21,8 +21,16 @@
 <body>
 
 
-<button class="button button1">Green</button>
+<button onclick="incrementCounter()" class="button button1">Green</button>
 <button class="button button2">Blue</button>
 
 </body>
+<script>
+  function incrementCounter(){
+    xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/incrementCounter", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("ahCount=1");
+  }
+</script>
 </html>
