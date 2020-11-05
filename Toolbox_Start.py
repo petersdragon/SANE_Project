@@ -51,8 +51,8 @@ def Speech_Click():
         is_presenting = False
 
 App = QtWidgets.QApplication([])
-UI = uic.loadUi("QT UI/Presenter_UI.ui")
-settingsUI = uic.loadUi("QT UI/Settings_UI.ui") # Set up reference to the settingsUI
+UI = uic.loadUi("QT_UI/Presenter_UI.ui")
+settingsUI = uic.loadUi("QT_UI/Settings_UI.ui") # Set up reference to the settingsUI
 timerBoundaries = {
     "greenIndicator" : ConvertTime(settingsUI.greenBoundary.time()),
     "yellowIndicator" : ConvertTime(settingsUI.yellowBoundary.time()),

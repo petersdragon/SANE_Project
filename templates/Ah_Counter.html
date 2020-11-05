@@ -1,0 +1,94 @@
+
+<html>
+  <head>
+    <style>
+      .button {
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        width: 150;
+      }
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 150;
+      }
+      table, th, td {
+        border: 0px solid black;
+        margin-left: auto; 
+        margin-right: auto;
+      }
+      
+      .button1 {background-color: #797979;} 
+      .button2 {background-color: #797979;} 
+      .button3 {background-color: #797979;} 
+      .button4 {background-color: #797979;} 
+      .button5 {background-color: #797979;} 
+      .button6 {background-color: #797979;} 
+    </style>
+  </head>
+
+  <body>
+    <img src="{{ url_for('static',filename='Toolbox_Bell.png') }}" alt="Toolbox Bell" class="center">
+    <table>
+      <tr>
+        <td> <button onclick="ahCounter()" class="button button1">Ah</button> </td>
+        <td> <button onclick="umCounter()" class="button button2">Um</button> </td>
+      </tr>
+      <tr>
+        <td> <button onclick="likeCounter()" class="button button3">Like</button> </td>
+        <td> <button onclick="soCounter()" class="button button4">So</button> </td>
+      </tr>
+      <tr>
+        <td> <button onclick="longPauseCounter()" class="button button3">Long Pause</button> </td>
+        <td> <button onclick="otherDisfluencyCounter()" class="button button4">Other</button> </td>
+      </tr>
+    </table>
+  </body>
+
+  <script>
+    function ahCounter(){
+      xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "/ahCounter", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("count=1");
+    }
+    function umCounter(){
+      xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "/umCounter", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("count=1");
+    }
+    function likeCounter(){
+      xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "/likeCounter", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("count=1");
+    }
+    function soCounter(){
+      xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "/soCounter", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("count=1");
+    }
+    function longPauseCounter(){
+      xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "/longPauseCounter", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("count=1");
+    }
+    function otherDisfluencyCounter(){
+      xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "/otherDisfluencyCounter", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("count=1");
+    }
+  </script>
+</html>
