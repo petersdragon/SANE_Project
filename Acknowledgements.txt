@@ -1,4 +1,3 @@
 Acknowledgements:
 
-https://pypi.org/project/stopwatch.py/
-
+https://pypi.org/project/stopwatch.py/      - MIT License

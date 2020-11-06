@@ -18,8 +18,7 @@ class Webcam(QThread):
         self.delay_FER_read = 0 
         self.delay = delay # only perform facial recognition once every certain number of frames to improve runtime experience
 
-    def run(self):
-        
+    def run(self):    
         # Capture from Webcam
         width = 320
         height = 240
