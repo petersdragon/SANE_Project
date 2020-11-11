@@ -81,7 +81,6 @@ def Other_Disfluency_Counter():
     thread_Ah_Counter.Total_Disfluencies += int(flask.request.form["count"])
     return Disfluency_Feedback()
 
-
 def Disfluency_Feedback():
     global disfluencyIndicator
     FG_Color = "rgb(0,0,255);"

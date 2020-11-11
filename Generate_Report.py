@@ -34,7 +34,7 @@ class Report():
         
     def Save_Report(self):
         file_name = self.presenter_name + "_" + self.speech_date + ".txt"
-        report_file = open(file_name, "w")
+        report_file = open("Generated_Reports/" + file_name, "w")
         report_string = ""
         report_string += "Presenter Name: \t" + self.presenter_name + "\n"
         report_string += "Date: \t" + self.speech_date + "\n"
@@ -50,5 +50,5 @@ class Report():
         report_string += "\tTotal:\t\t" + self.disfluencies["total"] + "\n"
         report_file.write(report_string)
         report_file.close()
-        webbrowser.open(file_name)
+        webbrowser.open("Generated_Reports/" + file_name)
 
